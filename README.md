@@ -13,3 +13,7 @@ User Stories
 4. JAKO osoba dbająca o zdrowie CHCIAŁBYM monitorować poziom wilgotności w moim mieszkaniu PO TO, ABY zapobiec rozwojowi pleśni i zapewnić lepsze warunki do oddychania.
 5. JAKO użytkownik CHCIAŁBYM mieć dostęp do raportów historycznych temperatury i wilgotności PO TO, ABY móc analizować zmiany w środowisku na przestrzeni czasu i podejmować odpowiednie działania.
 
+Kluczowe funkcjonalności
+1. Monitoring w czasie rzeczywistym: Użytkownicy mogą na bieżąco śledzić temperaturę i wilgotność w różnych miejscach, zarówno w domach, jak i w firmach.
+2. Alarmy i powiadomienia: Termosmart wysyła powiadomienia o przekroczeniu określonych progów temperatury i wilgotności, co pozwala uniknąć potencjalnych problemów (np. uszkodzenia towarów lub pogorszenia zdrowia).
+3. Raporty historyczne: Możliwość przeglądania danych z monitoringu w danym okresie. Umożliwia to analizowanie trendów oraz podejmowanie lepszych decyzji, np. w zakresie oszczędności energii lub optymalizacji warunków dla przechowywanych produktów
