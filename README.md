@@ -17,3 +17,8 @@ Kluczowe funkcjonalności
 1. Monitoring w czasie rzeczywistym: Użytkownicy mogą na bieżąco śledzić temperaturę i wilgotność w różnych miejscach, zarówno w domach, jak i w firmach.
 2. Alarmy i powiadomienia: Termosmart wysyła powiadomienia o przekroczeniu określonych progów temperatury i wilgotności, co pozwala uniknąć potencjalnych problemów (np. uszkodzenia towarów lub pogorszenia zdrowia).
 3. Raporty historyczne: Możliwość przeglądania danych z monitoringu w danym okresie. Umożliwia to analizowanie trendów oraz podejmowanie lepszych decyzji, np. w zakresie oszczędności energii lub optymalizacji warunków dla przechowywanych produktów
+
+Termosmart pomaga użytkownikom na wielu płaszczyznach, dostarczając wartość zarówno dla osób prywatnych, jak i biznesów. Dzięki dokładnym pomiarom i zdalnemu zarządzaniu, użytkownicy mogą kontrolować środowisko w swoich domach, biurach czy magazynach, minimalizując ryzyko i poprawiając efektywność.
+1. Zwiększenie komfortu życia: Użytkownicy mogą tworzyć idealne warunki do życia i pracy, co ma wpływ na ich zdrowie i samopoczucie.
+2. Oszczędność kosztów: Dzięki precyzyjnemu monitorowaniu warunków użytkownicy mogą zaoszczędzić na kosztach energii (np. optymalizowanie ogrzewania lub klimatyzacji).
+3. Zgodność z normami: Firmy przechowujące wrażliwe produkty mogą zapewnić zgodność z normami przechowywania, co minimalizuje ryzyko prawne i finansowe.
