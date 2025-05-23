@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TermoSmart Telemetria</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #2c3e50; }
+    pre { background: #f4f4f4; padding: 15px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Dane telemetryczne TermoSmart</h1>
+  <button id="loadDataBtn">Załaduj dane</button>
+  <pre id="output">Kliknij "Załaduj dane", aby pobrać telemetrię.</pre>
+
+  <script>
+    const button = document.getElementById('loadDataBtn');
+    const output = document.getElementById('output');
+
+    button.addEventListener('click', () => {
+      output.textContent = "Ładowanie danych...";
+      fetch('http://localhost:7071/api/HttpApi')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Błąd HTTP: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          output.textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          output.textContent = `Wystąpił błąd: ${error.message}`;
+        });
+    });
+  </script>
+</body>
+</html>

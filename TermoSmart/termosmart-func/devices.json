@@ -1,0 +1,18 @@
+[
+  {
+    "deviceId": "device01",
+    "userEmail": "user@example.com"
+  },
+  {
+    "deviceId": "device02",
+    "userEmail": "inna@osoba.pl"
+  },
+  {
+    "deviceId": "123",
+    "userEmail": "essa@wp.pl"
+  },
+  {
+    "deviceId": "123",
+    "userEmail": "essa@wp.pl"
+  }
+]

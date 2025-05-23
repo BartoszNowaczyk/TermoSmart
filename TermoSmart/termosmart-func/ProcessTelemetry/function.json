@@ -1,0 +1,13 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "event",
+      "direction": "in",
+      "connection": "IoTHubConnection",
+      "eventHubName": "iothub-ehub-termosmart-64173725-b342ea47f6",
+      "cardinality": "many",
+      "consumerGroup": "$Default"
+    }
+  ]
+}
