@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TermoSmart - Dane z czujnika</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-4 text-center">🌡️ TermoSmart - Dane z czujnika</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center mb-8">
+      <div class="bg-white rounded-xl shadow p-4">
+        <p class="text-sm text-gray-500">Średnia temperatura</p>
+        <p id="avgTemp" class="text-xl font-semibold">--</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4">
+        <p class="text-sm text-gray-500">Min. wilgotność</p>
+        <p id="minHum" class="text-xl font-semibold">--</p>
+      </div>
+      <div class="bg-white rounded-xl shadow p-4">
+        <p class="text-sm text-gray-500">Max. temperatura</p>
+        <p id="maxTemp" class="text-xl font-semibold">--</p>
+      </div>
+    </div>
+
+    <canvas id="chart" class="bg-white rounded-xl shadow p-4"></canvas>
+
+    <p id="error" class="text-red-600 mt-4 text-center"></p>
+  </div>
+
+  <script>
+    fetch('https://termosmart-api-akcndqc3agbuh5bf.westeurope-01.azurewebsites.net/api/data')
+      .then(res => res.json())
+      .then(data => {
+        const labels = data.map(d => new Date(d.timestamp).toLocaleTimeString());
+        const temp = data.map(d => d.temperature);
+        const hum = data.map(d => d.humidity);
+
+        // Statystyki
+        const avg = arr => (arr.reduce((a, b) => a + b, 0) / arr.length).toFixed(1);
+        const min = arr => Math.min(...arr).toFixed(1);
+        const max = arr => Math.max(...arr).toFixed(1);
+
+        document.getElementById('avgTemp').textContent = avg(temp) + ' °C';
+        document.getElementById('minHum').textContent = min(hum) + ' %';
+        document.getElementById('maxTemp').textContent = max(temp) + ' °C';
+
+        new Chart(document.getElementById('chart'), {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: 'Temperatura (°C)',
+                data: temp,
+                borderColor: 'rgb(255, 99, 132)',
+                tension: 0.3
+              },
+              {
+                label: 'Wilgotność (%)',
+                data: hum,
+                borderColor: 'rgb(54, 162, 235)',
+                tension: 0.3
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      })
+      .catch(err => {
+        document.getElementById('error').textContent = 'Błąd: ' + err.message;
+      });
+  </script>
+</body>
+</html>
