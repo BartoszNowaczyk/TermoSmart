@@ -10,16 +10,14 @@ load_dotenv()
 
 app = FastAPI()
 
-# 🔓 Dodanie CORS, aby frontend mógł pobierać dane z innej domeny
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Możesz tu wpisać konkretną domenę frontendową, np. "https://twojfrontend.azurestaticapps.net"
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Azure Blob Storage
 connection_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
 container_name = os.getenv("AZURE_STORAGE_CONTAINER")
 container_client = ContainerClient.from_connection_string(connection_str, container_name)
@@ -40,7 +38,7 @@ def get_data():
                     body_encoded = record.get("Body")
                     if body_encoded:
                         decoded = base64.b64decode(body_encoded).decode("utf-8")
-                        parsed = eval(decoded)  # Uważaj: eval może być niebezpieczny. Lepsze byłoby json.loads(decoded)
+                        parsed = eval(decoded) 
                         results.append({
                             "timestamp": record.get("EnqueuedTimeUtc"),
                             "device": record["SystemProperties"].get("connectionDeviceId"),
